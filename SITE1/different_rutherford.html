@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Заголовок страницы</title>
+<style>
+body {
+       background: white;
+     }
+p {
+    /*
+    -webkit-animation: colorchange 20s infinite; 
+    animation: colorchange 20s infinite;
+    */
+    
+    font-size: 25px;
+    font-style: italic;
+}
+@-webkit-keyframes colorchange {
+     0%  {background: #33FFF3;}
+    25%  {background: #78281F;}
+    50%  {background: #117A65;}
+    75%  {background: #DC7633;}
+    100% {background: #9B59B6;}
+}
+@keyframes colorchange {
+     0%  {background: #33FFF3;}
+    25%  {background: #78281F;}
+    50%  {background: #117A65;}
+    75%  {background: #DC7633;}
+    100% {background: #9B59B6;}
+}
+
+@keyframes shadow {
+from {text-shadow: 0 0 3px black;}
+25% {text-shadow: 0 0 15px black;}
+50% {text-shadow: 0 0 30px black;}
+75% {text-shadow: 0 0 15px black;}
+to {text-shadow: 0 0 3px black;}
+}
+   
+h1 {
+  font-size: 40px;
+  font-style: italic;
+  /*text-shadow: 5px 5px 10px #000;*/
+  animation: shadow  4s infinite ease-in-out;
+}
+
+.menu-2 {
+     margin-top: 50px;
+     padding: 20px;
+     height: auto;
+     list-style-type: none;
+     background-color: #6699ff;
+     text-align: center;
+}
+.menu-2 li {
+     margin: 8px 10px 8px 0;
+     padding: 2px 14px 4px;
+     background-color: #4960fb;
+     border: 2px solid #071eb9;
+     border-radius: 5px 20px;
+     display: inline-block;
+     transition: all 0.7s ease 0s;
+}
+.menu-2 a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.menu-2 li:hover {
+    background-color: #ccc;
+    border-radius: 20px 1px;
+}
+
+
+
+
+.drop ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+			
+/* отображаем выпадающий список при наведении */
+.drop li:hover > ul {
+    display:inherit;
+}
+			
+/* первый уровень выпадающего списка */
+.drop ul li {
+    min-width:170px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+
+#one { background-image: linear-gradient(to left, black, white); }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown> li {width: 200px; }
+
+</style>
+</head>
+  <body>
+    <h1 align="center">Вывод формулы Резерфорда</h1>
+    
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      extensions: ["tex2jax.js"],
+      "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+      tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+      TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "100%" } } },
+      messageStyle: "none"
+    });
+    </script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+
+     <p style="font_size: 18px;" align="center">При движении в центральном поле закон сохранения энергии записывается в виде:</p>
+\begin{equation}
+\label{eq:E}
+\begin{aligned}
+E = \frac{\mu}{2} \left(  \dot r^2 + r^2 \dot{\phi}^2 \right) + U(r) = \frac{\mu \dot{r}^2}{2} + \frac{M^2}{2 \mu r^2} + U(r),
+\end{aligned}
+\end{equation}
+
+<p style="font_size: 18px;" align="center">где $M=\mu r^2\dot{\phi}$ -- момент импульса приведённой частицы. Т. к. используется приведённая частица, рассмотрение ведётся в системе центра масс. Отсюда следует, что</p>
+\begin{equation}
+\label{eq:drdt}
+\begin{aligned} 
+\frac{dr}{dt} = \sqrt{ \frac{2}{\mu} \cdot \left(  E-U(r) \right) - \frac{M^2}{\mu^2 r ^2} }.
+\end{aligned}
+\end{equation}
+<p style="font_size: 18px;" align="center">Т. к. $d\phi=\frac{M}{\mu r^2}dt$, то</p>
+\begin{equation}
+\label{eq:dphi}
+\begin{aligned} 
+\phi = \int \frac{ \frac{M}{\mu r^2} dr }{ \sqrt{ \frac{2}{\mu} \left(  E-U(r) \right) - \frac{M^2}{\mu^2 r ^2} } } + const.
+\end{aligned}
+\end{equation}
+<p style="font_size: 18px;" align="center">Определим угол между какой-либо из асимптот и биссектрисой гиперболы, являющейся траекторией приведённой частицы, как</p>
+\begin{equation}
+\label{eq:phi0}
+\begin{aligned} 
+\phi_0 = \int_{r_{min}}^{\infty} \frac{ \frac{M}{r^2} dr }{ \sqrt{ 2 \mu \left(  E-U(r) \right) - \frac{M^2}{r ^2} } }.
+\end{aligned}
+\end{equation}
+
+<p style="font_size: 18px;" align="center">В случае кулоновского потенциала $U(r)=\frac{\alpha}{r}$</p>
+\begin{equation}
+\label{eq:phi_step1}
+\begin{aligned} 
+\phi_0 = - \int_{r_{min}}^{\infty} \frac{ d \left(  \frac{M}{r}  \right) }{ \sqrt{ 2 \mu E+ \left( \frac{\mu \alpha}{M} \right)^2 - \left( \frac{M}{r} +\frac{\mu \alpha}{M} \right)^2 } }
+\end{aligned}
+\end{equation}
+<p>или</p>
+\begin{equation}
+\label{eq:phi_step2}
+\begin{aligned} 
+\phi_0 = - \int_{r_{min}}^{\infty} \frac{ d \left(  \frac{ \frac{M}{r} + \frac{\mu \alpha}{M} }{ \sqrt{ 2\mu E+ \left( \frac{\mu \alpha}{M} \right)^2 } } \right) }{ \sqrt{ 1 - \frac{ \left( \frac{M}{r} +\frac{\mu \alpha}{M} \right)^2 }{ 2 \mu E + \left( \frac{\mu \alpha}{M} \right)^2 } } }.
+\end{aligned}
+\end{equation}
+<p>То есть</p>
+\begin{equation}
+\label{eq:phi_step3}
+\begin{aligned} 
+\phi_0 = \arccos{ \left(  \frac{ \frac{M}{r} + \frac{\mu \alpha}{M} }{ \sqrt{  2 \mu E+ \left( \frac{\mu \alpha}{M} \right)^2 } } \right) \bigg|_{r_{min}}^{\infty} }.
+\end{aligned}
+\end{equation}
+<p>Т. к. в точке максимального сближения $r_{min}$ выполняется $\frac{dr}{dt}=0$, а значит, $2E-2\frac{\alpha}{r_{min}}-\frac{M^2}{\mu r_{min}^2}=0$, то $\frac{ \frac{M}{r_{min}} + \frac{\mu \alpha}{M} }{ \sqrt{ 2 \mu E + \left( \frac{\mu \alpha}{M} \right)^2 } }=1$ и $\arccos{1}=0$. Тогда</p>
+\begin{equation}
+\begin{aligned} 
+\label{phi_fin}
+\phi_0 = \arccos{ \left(  \frac{ \frac{\mu \alpha}{M} }{ \sqrt{  2 \mu E+ \left( \frac{\mu \alpha}{M} \right)^2 } } \right) }.~~~(1)
+\end{aligned}
+\end{equation}
+<p>При использовании соотношений $E=\frac{ \mu V_{\infty}^2 }{2}$ и $M=\mu \rho V_{\infty}$, где $\rho$ -- прицельный параметр, а $V_{\infty}$ -- скорость налетающей частицы в лабораторной системе на бесконечном расстоянии от мишени, выражение (1) принимает вид</p>
+\begin{equation}
+\begin{aligned} 
+\label{phi_rho}
+\phi_0 = \arccos{ \left(  \frac{ \frac{\alpha}{ \rho V_{\infty}} }{ \sqrt{  \left( \mu V_{\infty} \right)^2+ \left( \frac{\alpha}{\rho V_{\infty}} \right)^2 } } \right) }.
+\end{aligned}
+\end{equation}
+<p>Отсюда следует, что</p>
+\begin{equation}
+\begin{aligned} 
+\label{rho}
+\rho \left( \chi \right) = \frac{\alpha}{ \mu V_{\infty}^2 } \tan{ \phi_0 } =
+\frac{\alpha}{ \mu V_{\infty}^2 } \cot{ \frac{\chi}{2} },
+\end{aligned}
+\end{equation}
+<p>т. к. угол рассеяния $\chi$ связан с $\phi_0$ как $\chi=\pi - 2 \phi_0$.</p>
+
+<p>Поскольку $d\sigma=2\pi \rho(\chi) |\frac{d \rho(\chi)}{d \chi}| d \chi = \frac{\rho(\chi)}{\sin{\chi}} |\frac{d \rho(\chi)}{d \chi}| d\Omega$, где $d\Omega=2 \pi \sin{\chi} \cdot d \chi$,
+и</p>
+\begin{equation}
+\begin{aligned} 
+\label{drhodtheta}
+\frac{d \rho \left( \chi \right)}{d \chi} = - \frac{1}{2} \frac{\alpha}{ \mu V_{\infty}^2 } \frac{1}{\sin^2{ \frac{\chi}{2} }} ,
+\end{aligned}
+\end{equation}
+<p>то</p>
+\begin{equation}
+\begin{aligned} 
+\label{dSigmadOmega}
+\frac{d \sigma}{d \Omega} = \left( \frac{\alpha}{ 2 \mu V_{\infty}^2 } \right)^2 \frac{1}{\sin^4{ \frac{\chi}{2} }} = \left( \frac{2 \mu \alpha}{ 4 \left( \mu V_{\infty} \right)^2 } \right)^2 \frac{1}{\sin^4{ \frac{\chi}{2} } }.~~~(2)
+\end{aligned}
+\end{equation}
+
+<p>В системе центра масс выражение (2) запишется как</p>
+
+\begin{equation}
+\begin{aligned} 
+\label{dSigmadOmegaCM}
+\frac{d \sigma}{d \Omega_{CM}} = \left( \frac{2 \mu \alpha}{ 4 p_{CM}^2 } \right)^2 \frac{1}{\sin^4{ \frac{\chi_{CM}}{2} }},~~~(3)
+\end{aligned}
+\end{equation}
+<p>где $p_{CM}$ -- импульс в системе центра масс, равный $p_{CM}=\frac{mV_{\infty} M}{m+M} \approx \frac{p_{LS} M}{\sqrt{s}}$, $p_{LS}=mV_{\infty}$ -- импульс налетающей частицы в лабораторной системе, $s=m^2+2EM+M^2$ -- мандельстамовская переменная, а $E$ -- полная энергия налетающей частицы в лабораторной системе.</p>
+
+<p>При выводе выражения (3) полагалось $\hbar=1$, $c=1$. В общем случае необходимо умножить (3) на $(\hbar c)^2$ и учитывать заряды налетающей частицы и мишени $z$ и $Z$:</p>
+\begin{equation}
+\begin{aligned} 
+\label{dSigmadOmegaCMFin}
+\frac{d \sigma}{d \Omega_{CM}} = \left( \frac{2 \mu \alpha z Z}{ 4 p_{CM}^2 } \right)^2 \frac{1}{\sin^4{ \frac{\chi_{CM}}{2} }} \cdot \left( \hbar c \right)^2.
+\end{aligned}
+\end{equation}
+
+<p>При учёте того, что $-t=2 p_{CM}^2 \left( 1 - \cos \chi_{CM} \right)=4 p_{CM}^2 \sin^2 \frac{\chi_{CM}}{2}$, выражение (3) в  системе центра масс может быть записано в виде</p>
+\begin{equation}
+\begin{aligned} 
+\label{dSigmadOmegaCMt}
+\frac{d \sigma}{d \Omega_{CM}} = \left( \frac{2 \mu \alpha z Z}{ t } \right)^2  \cdot \left( \hbar c \right)^2,
+\end{aligned}
+\end{equation}
+<p>который и будет использоваться в дальнейшем.</p>
+
+
+
+  </body>
+</html>
+
+

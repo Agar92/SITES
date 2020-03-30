@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Заголовок страницы</title>
+<style>
+
+.ball {
+  background: #f45342;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 80px auto 0 auto;
+}
+
+@keyframes bounce { 
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+@keyframes gbounce { 
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-50px); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.gbounce {
+  animation: gbounce 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes spring { 
+  0% {
+    transform: scale(1) translateY(0); 
+  }
+  10% {
+    transform: scale(1.2, 0.6); 
+  }
+  30% { 
+    transform: scale(0.8, 1.1) translateY(-50px); 
+  }
+  50% { 
+    transform: scale(1) translateY(0); 
+  }
+  100% { 
+    transform: translateY(0); 
+  }
+}
+.spring {
+  animation: spring 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+
+.ball {
+  animation: spring/*bounce/gbounce*/ 1.2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+.ball1 {
+  background: #f45342;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 80px auto 0 auto;
+  animation: move 1.2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move2 {
+0% { transform: translateX(-500px); }
+50% { transform: translateX(500px); }
+100% { transform: translateX(0); }
+animation-direction: alternate;
+animation-iteration-count: infinite;
+}
+
+.ball2 {
+  background: #f45342;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 80px auto 0 auto;
+  animation: move2 3.2s;
+  /*animation-direction: alternate;
+  animation-iteration-count: infinite;*/
+  /*animation-play-state: paused;*/
+}
+
+div.ball2:hover{
+  
+  /*animation-play-state: running;*/
+  cursor: pointer;
+  animation-name: move2;
+  -moz-animation-name: move2;
+}
+
+</style>
+</head>
+  <body>
+    
+  <div class="ball"></div>
+
+  <div class="ball1"></div>
+
+  <div class="ball2"></div>
+
+  </body>
+</html>
+
+

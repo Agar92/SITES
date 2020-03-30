@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Заголовок страницы</title>
+<style>
+body {
+       background: url(background.jpg) no-repeat; background-size: cover; background-position: center center; background-attachment: fixed;
+     }
+p {
+}
+
+h1 {
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 40px;
+  font-style: italic;
+  text-shadow: 5px 5px 10px #000; 
+}
+
+h1:hover {
+  background-color: yellow;
+  text-size: 200%;
+}
+
+.menu-2 {
+     margin-top: 50px;
+     padding: 20px;
+     height: auto;
+     list-style-type: none;
+     background-color: #6699ff;
+     text-align: center;
+}
+.menu-2 li {
+     margin: 8px 10px 8px 0;
+     padding: 2px 14px 4px;
+     background-color: #4960fb;
+     border: 2px solid #071eb9;
+     border-radius: 5px 20px;
+     display: inline-block;
+     transition: all 0.7s ease 0s;
+}
+.menu-2 a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.menu-2 li:hover {
+    background-color: #ccc;
+    border-radius: 20px 1px;
+}
+.menu-2 li:hover a {
+    color: #0e25c0;
+}
+
+
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+#h1 {
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+
+    animation-iteration-count: infinite;
+}
+
+div.menu-bar ul ul {
+  display: none;
+}
+
+div.menu-bar li:hover > ul {
+  display: block;
+}
+
+
+
+
+.image {
+    position: relative;
+    display:block;
+    margin: 50px;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.image:hover{
+   -webkit-animation-play-state: paused
+}
+
+</style>
+</head>
+  <body>
+    <h1 id="h1" style="font-style: italic;" " align="center">Контакты:</h1>
+
+    <h1 style=" margin-top: 30px; " align="center">e-mail: agar10@yandex.ru</h1>
+    <h1 style=" margin-top: 30px;" align="center">телефон: 8 917 581 61 30</p>
+
+
+   <ul style="margin-top: 50px;" class="menu-2">
+   <li><a href="#">Теория</a></li>
+   <li><a href="#">Примеры программ на С++</a></li>
+   <li><a href="cv.html">Обо мне</a></li>
+   <li><a href="contacts.html">Контакты</a></li>
+   </ul>
+
+
+
+
+ <div class="menu-bar">
+ <ul style="list-style-type: none;">
+   <li style="list-style-type: none;">
+     <a href="#">Меню 1</a>
+     <ul>
+       <li style="list-style-type: none;">
+         <a href="#">Ссылка</a>
+       </li>
+       <li style="list-style-type: none;">
+          <a class="menu-nav" href="#">Подменю</a>
+          <ul>
+            <li style="list-style-type: none;">
+              <a class="menu-nav" href="#">Подменю</a>
+              <ul>
+                <li style="list-style-type: none;"><a href="#">Ссылка</a></li>
+                <li style="list-style-type: none;"><a href="#">Ссылка</a></li>
+                <li style="list-style-type: none;"><a href="#">Ссылка</a></li>
+                <li style="list-style-type: none;"><a href="#">Ссылка</a></li>
+              </ul>
+            </li>
+            <li style="list-style-type: none;"><a href="example.html">Ссылка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+  <div style="position: relative; top: 300px; background-color: white;">
+  <img class="image" src="saw.jpg" alt="" width=auto height=auto>
+  </div>
+
+  </body>
+</html>
+
+

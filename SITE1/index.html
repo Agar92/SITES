@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Заголовок страницы</title>
+<style>
+body {
+       background: url(background.jpg) no-repeat; background-size: cover; background-position: center center; background-attachment: fixed;
+     }
+p {
+    -webkit-animation: colorchange 20s infinite; 
+    animation: colorchange 20s infinite;
+    
+    font-size: 25px;
+    font-style: italic;
+}
+@-webkit-keyframes colorchange {
+     0%  {background: #33FFF3;}
+    25%  {background: #78281F;}
+    50%  {background: #117A65;}
+    75%  {background: #DC7633;}
+    100% {background: #9B59B6;}
+}
+@keyframes colorchange {
+     0%  {background: #33FFF3;}
+    25%  {background: #78281F;}
+    50%  {background: #117A65;}
+    75%  {background: #DC7633;}
+    100% {background: #9B59B6;}
+} 
+
+@keyframes shadow {
+from {text-shadow: 0 0 3px black;}
+25% {text-shadow: 0 0 15px black;}
+50% {text-shadow: 0 0 30px black;}
+75% {text-shadow: 0 0 15px black;}
+to {text-shadow: 0 0 3px black;}
+}
+
+
+
+@-webkit-keyframes swing {
+  15% {
+    -webkit-transform: translateX(9px);
+    transform: translateX(9px);
+  }
+  30% {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+  40% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  50% {
+    -webkit-transform: translateX(-6px);
+    transform: translateX(-6px);
+  }
+  65% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(9px);
+    transform: translateX(9px);
+  }
+  30% {
+    -webkit-transform: translateX(-9px);
+    transform: translateX(-9px);
+  }
+  40% {
+    -webkit-transform: translateX(6px);
+    transform: translateX(6px);
+  }
+  50% {
+    -webkit-transform: translateX(-6px);
+    transform: translateX(-6px);
+  }
+  65% {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+  
+h1 {
+  font-size: 40px;
+  font-style: italic;
+  text-shadow: 5px 5px 10px #000;
+  animation: shadow  4s infinite ease-in-out;
+}
+
+h1:hover {
+  background:#53ea93;
+  -webkit-animation: swing 0.6s ease;
+  animation: swing 0.6s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.menu-2 {
+     margin-top: 50px;
+     padding: 20px;
+     height: auto;
+     list-style-type: none;
+     background-color: #6699ff;
+     text-align: center;
+}
+.menu-2 li {
+     margin: 8px 10px 8px 0;
+     padding: 2px 14px 4px;
+     background-color: #4960fb;
+     border: 2px solid #071eb9;
+     border-radius: 5px 20px;
+     display: inline-block;
+     transition: all 0.7s ease 0s;
+}
+.menu-2 a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.menu-2 li:hover {
+    background-color: #ccc;
+    border-radius: 20px 1px;
+}
+
+
+
+
+.drop ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+			
+/* отображаем выпадающий список при наведении */
+.drop li:hover > ul {
+    display:inherit;
+}
+			
+/* первый уровень выпадающего списка */
+.drop ul li {
+    min-width:170px;
+    float:none;
+    display:list-item;
+    position: relative;
+}
+
+#one { background-image: linear-gradient(to left, black, white); }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown> li {width: 200px; }
+
+
+
+
+.wrapper {
+	margin: 50px;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	position:relative
+}
+
+.right {
+	border: #3f85a3 solid 15px;
+	height: 125px;
+	width: 125px;
+	border-radius:120px;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	position: absolute;
+	transform: rotate(-45deg);
+	animation: rota2 1000ms linear;
+  -moz-animation: rota2 1000ms linear;
+  -o-animation: rota2 1000ms linear;
+  -webkit-animation: rota2 1000ms linear;
+}
+
+@keyframes rota2 {
+	from{ transform:rotate(-225deg);}
+	to { transform: rotate(-45deg);}
+}
+
+@-o-keyframes rota2 {
+	from{ transform:rotate(-225deg);}
+	to { transform: rotate(-45deg);}
+}
+
+@-moz-keyframes rota2 {
+	from{ transform:rotate(-225deg);}
+	to { transform: rotate(-45deg);}
+}
+@-webkit-keyframes rota2 {
+	from{ transform:rotate(-225deg);}
+	to { transform: rotate(-45deg);}
+}
+
+.left {
+	border: #3f85a3 solid 15px;
+	height: 125px;
+	width: 125px;
+	border-radius:120px;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	position: absolute;
+	transform: rotate(315deg);
+	animation: rota 2000ms linear;
+  -o-animation: rota 2000ms linear;
+  -moz-animation: rota 2000ms linear;
+  -webkit-animation: rota 2000ms linear;
+}
+@keyframes rota {
+	from {transform: rotate(-45deg);}
+	to { transform: rotate(315deg);}
+}
+@-o-keyframes rota {
+	from {transform: rotate(-45deg);}
+	to { transform: rotate(315deg);}
+}
+@moz-keyframes rota {
+	from {transform: rotate(-45deg);}
+	to { transform: rotate(315deg);}
+}
+@-webkit-keyframes rota {
+	from {transform: rotate(-45deg);}
+	to { transform: rotate(315deg);}
+}
+
+.middle {
+  color: #0987bc;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+	width: 130px;
+	height: 130px;
+	left: 15px;
+	top: 15px;
+	border-radius: 150px;
+	position: relative;
+	z-index: 4;
+}
+
+.popover {
+	background: white;
+	width: 80px;
+	height: 162px;
+	position:absolute;
+	top: -3px;
+	left: -3px;
+	opacity:0;
+	z-index:2;
+	animation: popover 1000ms linear;
+  -moz-animation: popover 1000ms linear;
+  -o-animation: popover 1000ms linear;
+  -webkit-animation: popover 1000ms linear;
+}
+
+@keyframes popover {
+	0% {opacity: 1;}
+	99%{opacity:1;}
+	100% {opacity:0;}
+}
+
+@-o-keyframes popover {
+	0% {opacity: 1;}
+	99%{opacity:1;}
+	100% {opacity:0;}
+}
+
+@-moz-keyframes popover {
+	0% {opacity: 1;}
+	99%{opacity:1;}
+	100% {opacity:0;}
+}
+
+@-webkit-keyframes popover {
+	0% {opacity: 1;}
+	99%{opacity:1;}
+	100% {opacity:0;}
+}
+
+
+
+
+
+
+</style>
+</head>
+  <body>
+    <h1 align="center">Приветствую Вас!</h1>
+    <p align="center">Ниже представлено содержание этого сайта.</p>
+
+    <h2 align="center" id="one">Содержание:</h2>
+
+    <ul class="menu-2">
+    <li style="width: 200px;" class="dropdown">
+      <a href="#">Теория</a>
+      <ul class="dropdown-content">
+            <li><a href="different_rutherford.html">Формула Резерфорда</a></li>
+            <li style="width: 250px;"><a href="ball.html">Формула Резерфорда для тождественных частиц</a></li>
+            <li><a href="css_gallery.html">Что-то ещё</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Примеры программ на С++</a></li>
+    <li><a href="cv.html">Обо мне</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+
+
+   <div>
+   <div class="wrapper">
+   <div class="right"></div>
+   <div class="left"></div>
+	<div class="middle">
+    <p style="background-color: white; text-align: center; font-color: red;">100% <br/>
+      loaded</p>
+	</div>
+		<div class="popover"></div>
+   </div>
+
+</div>
+
+
+  </body>
+</html>
+
+

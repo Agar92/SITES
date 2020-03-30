@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>CSS gallery example - MDN</title>
+<style type="text/css">
+#gallery-container {
+	position: relative;
+	width: 500px;
+	height: auto;
+	padding-top: 350px;
+	padding-bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 1px #aaaaaa solid;
+}
+
+img.gallery-fullsize {
+	position: absolute;
+	top: 15px;
+	left: 50px;
+	display: none;
+}
+
+div.gallery-item {
+	display: inline-block;
+}
+
+img.gallery-preview:hover ~ img.gallery-fullsize {
+	display: block;
+}
+
+h1{
+  opacity: 1;
+}
+
+h1:hover {
+  opacity: 0.6;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+
+  -webkit-transform: rotateZ(20deg);
+  -ms-transform: rotateZ(20deg);
+  transform: rotateZ(20deg);
+}
+
+ul {
+    width: 180px; /* Ширина меню */
+    list-style: none; /* Для списка убираем маркеры */
+    margin: 0; /* Нет отступов вокруг */
+    padding: 0; /* Убираем поля вокруг текста */
+    font-family: Arial, sans-serif; /* Рубленый шрифт для текста меню */
+    font-size: 10pt; /* Размер названий в пункте меню */
+   }
+li ul {
+    position: absolute; /* Подменю позиционируются абсолютно */
+    display: none; /* Скрываем подменю */
+    margin-left: 165px; /* Сдвигаем подменю вправо */
+    margin-top: -2em; /* Сдвигаем подменю вверх */
+      }
+li a {
+    display: block; /* Ссылка как блочный элемент */
+    padding: 5px; /* Поля вокруг надписи */
+    text-decoration: none; /* Подчеркивание у ссылок убираем */
+    color: #666; /* Цвет текста */
+    border: 1px solid #ccc; /* Рамка вокруг пунктов меню */
+    background-color: #f0f0f0; /* Цвет фона */
+    border-bottom: none; /* Границу снизу не проводим */
+}
+li a:hover {
+    color: #ffe; /* Цвет текста активного пункта */
+    background-color: #5488af; /* Цвет фона активного пункта */
+}
+li:hover ul {
+    display: block; /* При выделении пункта курсором мыши отображается подменю */
+    }
+.brd {
+    border-bottom: 1px solid #ccc; /* Линия снизу */
+     }
+
+@keyframes bounce {
+  from {
+    top: 100px;
+    animation-timing-function: ease-out;
+  }
+  25% {
+    top: 50px;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: 100px;
+    animation-timing-function: ease-out;
+  }
+  75% {
+    top: 75px;
+    animation-timing-function: ease-in;
+  }
+  to {
+    top: 100px;
+  }
+}
+
+#one{
+  /*animation: bounce  4s ;*/
+}
+
+#one:hover{
+  border-radius: 70%;
+}
+
+/*
+body {
+  margin: 0;
+  background: #E6E2D6;
+}
+*/
+
+.loader-container {
+  /*position: absolute;*/
+  position: relative;
+  top: calc(50% - 65px);
+  left: calc(50% - 65px);
+  width: 100px;
+  height: 100px;
+  background: #BDE2E0;
+  border-radius: 50%;
+  border: 15px solid #D7695A;
+  box-shadow: inset 0 0 15px rgba(0,0,0,.5);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 100px;
+  overflow: hidden;
+}
+@keyframes load {
+  100% {
+    transform: translateY(-1100px);
+  }
+}
+.loader {
+  animation: load 11s steps(11, end) infinite;
+}
+
+
+
+
+/* keyframes definition for WebKit browsers */
+
+@-webkit-keyframes travel {
+  from { left: 0;     }
+  to   { left: 640px; }
+}
+
+@-webkit-keyframes bounce {
+  from, to  {
+    bottom: 0;
+    -webkit-animation-timing-function: ease-out;
+  }
+  50% {
+    bottom: 220px;
+    -webkit-animation-timing-function: ease-in;
+  }
+}
+
+@-webkit-keyframes spin {
+  from {                                     }
+  to   { -webkit-transform: rotateZ(360deg); }
+}
+
+/* keyframes definition for other browsers */
+
+@keyframes travel {
+  from { left: 0;     }
+  to   { left: 640px; }
+}
+
+@keyframes bounce {
+  from, to  {
+    bottom: 0;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    bottom: 220px;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes spin {
+  from {
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* styles for the stage and animated elements */
+
+#stage {
+  position: relative;
+  margin: 1em auto;
+  width: 660px;
+  height: 240px;
+  border: 2px solid #666;
+  background: #cff;
+}
+
+#traveler {
+  position: absolute;
+  width: 20px;
+  height: 240px;
+
+  -webkit-animation-name: travel;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 4.8s;
+
+  animation-name: travel;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 4.8s;
+}
+
+#bouncer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: red;
+  background: -webkit-radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+  background: -moz-radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+  background: -o-radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+  background: -ms-radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+  background: radial-gradient(60% 40%, circle, rgba(255,255,255,0.8), red 50%) red;
+
+  -webkit-animation-name: bounce, spin;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 4.2s;
+
+  animation-name: bounce, spin;
+  animation-iteration-count: infinite;
+  animation-duration: 4.2s;
+}
+
+
+
+#ballWrapper {
+	width: 140px;
+	height: 300px;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	margin: -150px 0 0 -70px;
+}
+
+#ball {
+	width: 140px;
+	height: 140px;
+	border-radius: 70px;
+	background: linear-gradient(top,  rgba(187,187,187,1) 0%,rgba(119,119,119,1) 99%);
+	box-shadow: inset 0 -5px 15px rgba(255,255,255,0.4), 
+				inset -2px -1px 40px rgba(0,0,0,0.4), 
+				0 0 1px #000;	
+}
+
+
+#ball::after {
+	content: "";
+	width: 80px; 
+	height: 40px; 
+	position: relative;
+	left: 30px;
+	top: 10px;	
+	background: linear-gradient(top,  rgba(232,232,232,1) 0%,rgba(232,232,232,1) 1%,rgba(255,255,255,0) 100%);
+	border-radius: 40px / 20px;	
+}
+
+#ballShadow {
+	width: 60px;
+	height: 75px;
+	position: absolute;
+	z-index: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -30px;
+	background: rgba(20, 20, 20, .1);
+	box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+	border-radius: 30px / 40px;	
+}
+
+#ball {
+	animation: jump 1s infinite;
+}
+
+@keyframes jump {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: 140px;
+		height: 140px;
+	}
+	55% {
+		top: 160px; 
+		height: 120px; 
+		border-radius: 70px / 60px;
+	}
+	65% {
+		top: 120px; 
+		height: 140px; 
+		border-radius: 70px;
+	}
+	95% {
+		top: 0;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+#ballShadow {
+	animation: shrink 1s infinite;
+}
+
+
+@-keyframes shrink {
+	0% {
+		bottom: 0;
+		margin-left: -30px;
+		width: 60px;
+		height: 75px;
+		background: rgba(20, 20, 20, .1);
+		box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+		border-radius: 30px / 40px;
+	}
+	50% {
+		bottom: 30px;
+		margin-left: -10px;
+		width: 20px;
+		height: 5px;
+		background: rgba(20, 20, 20, .3);
+		box-shadow: 0px 0 20px 35px rgba(20,20,20,.3);
+		border-radius: 20px / 20px;
+	}
+	100% {
+		bottom: 0;
+		margin-left: -30px;
+		width: 60px;
+		height: 75px;
+		background: rgba(20, 20, 20, .1);
+		box-shadow: 0px 0 20px 35px rgba(20,20,20,.1);
+		border-radius: 30px / 40px;
+	}
+}
+
+#ballWrapper {
+	transform: scale(1);
+	transition: all 5s linear 0s;
+}
+
+#ballWrapper:active {
+	transform: scale(0);
+}
+
+
+
+</style>
+</head>
+
+<body>
+<h1 align="center">CSS gallery</h1>
+<div id="gallery-container">
+	<div class="gallery-item">
+		<img src="images/1s.jpg" class="gallery-preview" />
+		<img src="images/1.jpg" class="gallery-fullsize" />
+	</div>
+	<div class="gallery-item">
+		<img src="images/2s.jpg" class="gallery-preview" />
+		<img src="images/2.jpg" class="gallery-fullsize" />
+	</div>
+	<div class="gallery-item">
+		<img src="images/3s.jpg" class="gallery-preview" />
+		<img src="images/3.jpg" class="gallery-fullsize" />
+	</div>
+	<div class="gallery-item">
+		<img src="images/4s.jpg" class="gallery-preview" />
+		<img src="images/4.jpg" class="gallery-fullsize" />
+	</div>
+</div>
+
+<div style="background-color: red;" id="one">
+  <p align="center">Some pictures</p>
+</div>
+
+
+
+
+<ul class="menu">
+      <li>
+        <a href="#">Русская кухня</a>
+        <ul>
+          <li><a href="#">Бефстроганов</a></li>
+          <li><a href="#">Гусь с яблоками</a></li>
+          <li><a href="#">Крупеник новгородский</a></li>
+          <li><a href="#" class="brd">Раки по-русски</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Украинская кухня</a>
+        <ul>
+          <li><a href="#">Вареники</a></li>
+          <li><a href="#">Жаркое по-харьковски</a></li>
+          <li><a href="#">Капустняк черниговский</a></li>
+          <li><a href="#" class="brd">Потапцы с помидорами</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Кавказская кухня</a>
+        <ul>
+          <li><a href="#">Суп-харчо</a></li>
+          <li><a href="#">Лилибдж</a></li>
+          <li><a href="#">Чихиртма</a></li>
+          <li><a href="#" class="brd">Шашлык</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="brd">Кухня Средней Азии</a></li>
+    </ul>
+
+
+<div class="loader-container">
+  <div class="loader">
+    <span>0%</span>
+    <span>10%</span>
+    <span>20%</span>
+    <span>30%</span>
+    <span>40%</span>
+    <span>50%</span>
+    <span>60%</span>
+    <span>70%</span>
+    <span>80%</span>
+    <span>90%</span>
+    <span>100%</span>
+  </div>
+</div>
+
+
+
+<div id="stage">
+<div id="traveler">
+<div id="bouncer"><!-- --></div>
+</div>
+</div>
+
+
+
+<div id="ballWrapper">
+<div id="ball"></div>
+<div id="ballShadow"></div>
+
+			
+</div>
+</body>
+</html>
